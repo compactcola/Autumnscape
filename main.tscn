@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b7wk8047s1nk" path="res://assets/ForestRocksBackground.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://kl3mmmpra0ur" path="res://assets/ForestRubble.png" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://b1kdpxmgcw15s" path="res://spikes.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://d0owaenkscufk" path="res://killzone.tscn" id="8_5vw27"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -172,6 +173,9 @@ sources/0 = SubResource("TileSetAtlasSource_5vw27")
 sources/1 = SubResource("TileSetAtlasSource_kek77")
 sources/2 = SubResource("TileSetAtlasSource_4c57u")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ra2i3"]
+distance = -6.0
+
 [node name="Main" type="Node2D" unique_id=134914143]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1231569310]
@@ -222,3 +226,9 @@ position = Vector2(568, 248)
 
 [node name="Spikes5" parent="Hazards" unique_id=800872944 instance=ExtResource("7_272bh")]
 position = Vector2(584, 248)
+
+[node name="Killzone" parent="." unique_id=1637043 instance=ExtResource("8_5vw27")]
+position = Vector2(0, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1418983606]
+shape = SubResource("WorldBoundaryShape2D_ra2i3")
