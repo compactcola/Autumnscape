@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @onready var animation_player = $AnimatedSprite2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 175.0
+const JUMP_VELOCITY = -300.0
+const COYOTE_DURATION = 0.15
+
+var coyote_time = 0.0
 
 var is_falling = false
 var is_landing = false
@@ -18,6 +21,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if not is_on_floor():
+		coyote_time -=  delta
+		
 		velocity += get_gravity() * delta
 		if velocity.y <= 0:
 			animation_player.play("jump")
@@ -26,9 +31,10 @@ func _physics_process(delta):
 			
 		is_falling = true
 		is_landing = false
+	elif is_on_floor():
+		coyote_time = COYOTE_DURATION
 		
-	if is_on_floor():
-		if is_falling == true:
+		if is_falling == true and velocity.y > -0.01: ##check that doesnt work rn lol
 			is_falling = false
 			is_landing = true
 			animation_player.play("land")
@@ -41,8 +47,18 @@ func _physics_process(delta):
 			else:
 				animation_player.play("idle")
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and coyote_time > 0.0:
 		velocity.y = JUMP_VELOCITY
 		is_landing = false
+		coyote_time = 0.0
+		
 
 	move_and_slide()
+	
+func death():
+	set_physics_process(false)
+	
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	animation_player.play("death")
+	await animation_player.animation_finished
