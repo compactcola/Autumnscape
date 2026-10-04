@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dbc7y2m10jg0g"]
+
+[ext_resource type="Texture2D" uid="uid://5bxp4cavehho" path="res://assets/smoke_landing_spritesheet.png" id="1_vncjd"]
+[ext_resource type="Script" uid="uid://cwhixqofsistf" path="res://landing_fx.gd" id="2_68vha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68vha"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibnp6"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tspue"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thmve"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d1rk"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et7s6"]
+atlas = ExtResource("1_vncjd")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cu5vp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68vha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibnp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tspue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thmve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d1rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et7s6")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Landing FX" type="AnimatedSprite2D" unique_id=1122083182]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_cu5vp")
+script = ExtResource("2_68vha")

@@ -199,7 +199,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqy")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"fall",
 "speed": 12.0
 }, {
@@ -294,6 +294,5 @@ shape = SubResource("CapsuleShape2D_ra2i3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1385895574]
 sprite_frames = SubResource("SpriteFrames_ra2i3")
-animation = &"death"
+animation = &"fall"
 autoplay = "idle"
-frame_progress = 0.6929113

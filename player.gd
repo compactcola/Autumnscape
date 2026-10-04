@@ -38,6 +38,7 @@ func _physics_process(delta):
 			is_falling = false
 			is_landing = true
 			animation_player.play("land")
+			landing_fx()
 			animation_player.animation_finished.connect(
 				func(): is_landing = false, CONNECT_ONE_SHOT)
 		
@@ -51,7 +52,9 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		is_landing = false
 		coyote_time = 0.0
-		
+	
+	if Input.is_action_just_released("jump") and velocity.y < 0.0:
+		velocity.y *= 0.25
 
 	move_and_slide()
 	
@@ -62,3 +65,14 @@ func death():
 	
 	animation_player.play("death")
 	await animation_player.animation_finished
+
+
+const LANDING_SCENE = preload("res://landing_fx.tscn")
+func landing_fx():
+	var landing = LANDING_SCENE.instantiate()
+	landing.process_mode = PROCESS_MODE_ALWAYS
+	
+	landing.global_position.x = self.global_position.x
+	landing.global_position.y = self.global_position.y + 8
+	
+	get_tree().current_scene.add_child(landing)
