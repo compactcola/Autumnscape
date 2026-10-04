@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgdbmxcrtbc3m"]
 
 [ext_resource type="Texture2D" uid="uid://jri2f0c3koii" path="res://assets/checkpoint_spritesheet.png" id="1_luqgl"]
-[ext_resource type="Script" uid="uid://bnlq0tarwa80y" path="res://checkpoint.gd" id="1_r6hke"]
+[ext_resource type="Script" uid="uid://bnlq0tarwa80y" path="res://scripts/checkpoint.gd" id="1_r6hke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6hke"]
 atlas = ExtResource("1_luqgl")

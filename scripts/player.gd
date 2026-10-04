@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 @onready var animation_player = $AnimatedSprite2D
 
-const SPEED = 175.0
+var current_speed = 0.0
+
+const MAX_SPEED = 175.0
+const ACCELERATION = 700.0
 const JUMP_VELOCITY = -300.0
 const COYOTE_DURATION = 0.15
 
@@ -15,10 +18,12 @@ var is_landing = false
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		current_speed = move_toward(current_speed, MAX_SPEED, ACCELERATION * delta)
+		velocity.x = direction * current_speed
 		animation_player.flip_h = direction < 0 
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		current_speed = move_toward(current_speed, 0.0, ACCELERATION * delta)
+		velocity.x = 0.0
 	
 	if not is_on_floor():
 		coyote_time -=  delta
