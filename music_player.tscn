@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://3q5l1a0q5ksk"]
+
+[ext_resource type="AudioStream" uid="uid://cbn3yhrpdsuup" path="res://assets/Level1Theme.mp3" id="1_fvyft"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" unique_id=1732940362]
+stream = ExtResource("1_fvyft")
+autoplay = true
+max_distance = 4096.0
+attenuation = 3.840284e-05

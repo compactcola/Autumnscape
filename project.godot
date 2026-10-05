@@ -15,6 +15,10 @@ run/main_scene="uid://dhgaenontch0w"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+MusicPlayer="*uid://3q5l1a0q5ksk"
+
 [display]
 
 window/size/viewport_width=640
