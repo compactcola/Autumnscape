@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://7w5xm0yag3bn"]
+
+[ext_resource type="Script" uid="uid://c5rgmek5v243" path="res://scripts/input_remap_button.gd" id="1_3rkme"]
+[ext_resource type="Script" uid="uid://dkfvfd4yp8xrj" path="res://scripts/input_remap_menu.gd" id="1_i1w2e"]
+
+[node name="InputRemapMenu" type="Control" unique_id=1484607861]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1w2e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=742886141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=812611333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=994596956]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=577838679]
+layout_mode = 2
+text = "Jump"
+
+[node name="InputRemapButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=1005122663]
+layout_mode = 2
+script = ExtResource("1_3rkme")
+action = "jump"
+metadata/_custom_type_script = "uid://c5rgmek5v243"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=1928820217]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=1005766274]
+layout_mode = 2
+text = "Move Right"
+
+[node name="InputRemapButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer2" unique_id=161865707]
+layout_mode = 2
+script = ExtResource("1_3rkme")
+action = "right"
+action_event_index = 1
+metadata/_custom_type_script = "uid://c5rgmek5v243"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=1731398671]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer3" unique_id=131057165]
+layout_mode = 2
+text = "Move Left"
+
+[node name="InputRemapButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer3" unique_id=509805188]
+layout_mode = 2
+script = ExtResource("1_3rkme")
+action = "left"
+action_event_index = 2
+metadata/_custom_type_script = "uid://c5rgmek5v243"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer" unique_id=830259477]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]

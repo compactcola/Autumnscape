@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dhgaenontch0w"]
 
 [ext_resource type="PackedScene" uid="uid://dy8sr5rpanpdo" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://5ybv2k58c1uw" path="res://scripts/main.gd" id="1_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dbe13pn6ajak3" path="res://assets/ForestGround.png" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://b7q8lo2xu3pvs" path="res://assets/BG_Sky.png" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b73lcna0bipyy" path="res://assets/ForestPlants.png" id="3_lquwl"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bhuq8vwowi3ih" path="res://moving_platform_small.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://dsq3cha6t1akb" path="res://chest.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cgdbmxcrtbc3m" path="res://checkpoint.tscn" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dlt6klhmniscu" path="res://pause_menu.tscn" id="12_dg77c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -449,6 +451,7 @@ _data = {
 }
 
 [node name="Main" type="Node2D" unique_id=134914143]
+script = ExtResource("1_ycdy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1231569310]
 layer = -100
@@ -589,3 +592,5 @@ scale = Vector2(-1, 1)
 
 [node name="Area2D" parent="." unique_id=1984857735 instance=ExtResource("11_dg77c")]
 position = Vector2(937, -192)
+
+[node name="PauseMenu" parent="." unique_id=520638196 instance=ExtResource("12_dg77c")]

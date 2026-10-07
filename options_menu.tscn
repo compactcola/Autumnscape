@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://8jljf6s11chs"]
+
+[ext_resource type="Script" uid="uid://chlrs61w23g4i" path="res://scripts/options_menu.gd" id="1_lbr8e"]
+[ext_resource type="PackedScene" uid="uid://7w5xm0yag3bn" path="res://input_remap_menu.tscn" id="2_t1lix"]
+
+[node name="OptionsMenu" type="Control" unique_id=133546762]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbr8e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1550699488]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=985656144]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=755342318]
+layout_mode = 2
+
+[node name="ControlMap" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1591545177]
+layout_mode = 2
+text = "Toggle Controls
+"
+
+[node name="VolumeBox" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=333020839]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/VolumeBox" unique_id=1879662193]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VolumeBox/VBoxContainer" unique_id=286117180]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VolumeBox/VBoxContainer" unique_id=1419233277]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1431726205]
+layout_mode = 2
+text = "Back"
+
+[node name="InputRemapMenu" parent="." unique_id=1484607861 instance=ExtResource("2_t1lix")]
+layout_mode = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ControlMap" to="." method="_on_control_map_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeBox/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cdbeq6vrcjb1q"]
+
+[ext_resource type="Script" uid="uid://cnu4wc0jwj2fu" path="res://scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://8jljf6s11chs" path="res://options_menu.tscn" id="2_7vrkn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ra2i3"]
+
+[node name="Control" type="Control" unique_id=819189363]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1230958232]
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 359.0
+texture = SubResource("CanvasTexture_ra2i3")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1691059955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="CenterContainer" unique_id=849268255]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="CenterContainer/MainMenu" unique_id=674757162]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="CenterContainer/MainMenu" unique_id=1433689515]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="CenterContainer/MainMenu" unique_id=1384040106]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="OptionsMenu" parent="." unique_id=133546762 instance=ExtResource("2_7vrkn")]
+layout_mode = 1
+
+[connection signal="pressed" from="CenterContainer/MainMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MainMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/MainMenu/Quit" to="." method="_on_quit_pressed"]
